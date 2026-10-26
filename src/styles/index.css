@@ -2,33 +2,37 @@
    rules work in both LTR (English) and RTL (Arabic). */
 
 :root {
-  --font-latin: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-latin: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-arabic: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', 'Segoe UI', Tahoma, 'Geeza Pro', 'Arial', sans-serif;
 
-  --c-bg: #f4f6f8;
-  --c-surface: #ffffff;
-  --c-surface-2: #f8fafb;
-  --c-border: #e2e7ec;
-  --c-text: #17212b;
-  --c-muted: #5b6b7a;
-  --c-primary: #0f766e;
-  --c-primary-hover: #0b5f58;
-  --c-primary-soft: #e3f4f2;
-  --c-success: #15803d;
-  --c-success-soft: #e5f6eb;
-  --c-warning: #a35a00;
-  --c-warning-soft: #fdf1dc;
-  --c-danger: #c02626;
-  --c-danger-soft: #fde8e8;
-  --c-focus: #2563eb;
+  /* Warehouse-floor dark theme: near-black surfaces, amber for anything actionable. */
+  --c-bg: #0b0b0d;
+  --c-surface: #151518;
+  --c-surface-2: #1c1c20;
+  --c-border: #2a2a30;
+  --c-input-border: #2f2f37;
+  --c-text: #ececf1;
+  --c-muted: #9b9ba6;
+  --c-primary: #f59e0b;
+  --c-primary-hover: #fbbf24;
+  --c-primary-soft: rgb(245 158 11 / 14%);
+  /* Text/icon colour on the amber-tinted soft fills. */
+  --c-on-primary: #1a1205;
+  --c-success: #4ade80;
+  --c-success-soft: rgb(74 222 128 / 12%);
+  --c-warning: #fbbf24;
+  --c-warning-soft: rgb(251 191 36 / 12%);
+  --c-danger: #f87171;
+  --c-danger-soft: rgb(248 113 113 / 12%);
+  --c-focus: #60a5fa;
 
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 1px 3px rgb(16 24 40 / 8%);
-  --shadow-lg: 0 20px 40px rgb(16 24 40 / 18%);
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow: 0 0 0 1px #222227;
+  --shadow-lg: 0 20px 40px rgb(0 0 0 / 55%);
   --sidebar-w: 256px;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 *,
@@ -178,8 +182,9 @@ html[dir='rtl'] .icon--flip {
   flex-direction: column;
   gap: 1.5rem;
   padding: 1.25rem 1rem;
-  background: #0f1f2a;
-  color: #dbe5ec;
+  background: #050506;
+  border-inline-end: 1px solid #1f1f24;
+  color: var(--c-text);
   overflow-y: auto;
 }
 .sidebar__brand {
@@ -194,7 +199,7 @@ html[dir='rtl'] .icon--flip {
   font-size: 1.1rem;
 }
 .sidebar__brand .muted {
-  color: #93a6b5;
+  color: var(--c-muted);
   font-size: 0.82rem;
 }
 .logo {
@@ -204,7 +209,7 @@ html[dir='rtl'] .icon--flip {
   block-size: 38px;
   border-radius: 10px;
   background: var(--c-primary);
-  color: #fff;
+  color: var(--c-on-primary);
 }
 .sidebar ul {
   list-style: none;
@@ -229,15 +234,15 @@ html[dir='rtl'] .icon--flip {
 .nav-link--active {
   background: rgb(20 184 166 / 14%);
   color: #fff;
-  border-inline-start-color: #2dd4bf;
+  border-inline-start-color: var(--c-primary);
 }
 .nav-link__count {
   margin-inline-start: auto;
   min-inline-size: 1.5rem;
   padding: 0 0.4rem;
   border-radius: 999px;
-  background: #f59e0b;
-  color: #1f1300;
+  background: var(--c-primary);
+  color: var(--c-on-primary);
   font-size: 0.75rem;
   font-weight: 700;
   text-align: center;
@@ -257,7 +262,7 @@ html[dir='rtl'] .icon--flip {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 2rem;
-  background: rgb(244 246 248 / 88%);
+  background: rgb(11 11 13 / 88%);
   backdrop-filter: blur(8px);
   border-block-end: 1px solid var(--c-border);
 }
@@ -652,7 +657,7 @@ select {
   inline-size: 100%;
   min-block-size: 40px;
   padding: 0.5rem 0.75rem;
-  border: 1px solid #cfd8e0;
+  border: 1px solid var(--c-input-border);
   border-radius: var(--radius-sm);
   background: var(--c-surface);
   color: var(--c-text);
@@ -910,7 +915,7 @@ html[lang='ar'] .table th {
   inline-size: min(440px, calc(100vw - 2rem));
 }
 .modal::backdrop {
-  background: rgb(15 23 42 / 50%);
+  background: rgb(0 0 0 / 60%);
 }
 .modal__panel {
   display: flex;
@@ -972,8 +977,8 @@ html[lang='ar'] .table th {
   padding: 0.75rem 0.75rem 0.75rem 0.9rem;
   padding-inline: 0.9rem 0.5rem;
   border-radius: var(--radius-sm);
-  background: #0f1f2a;
-  color: #fff;
+  background: var(--c-surface-2);
+  color: var(--c-text);
   box-shadow: var(--shadow-lg);
   border-inline-start: 4px solid var(--c-primary);
   animation: toast-in 0.18s ease-out;
@@ -987,23 +992,45 @@ html[lang='ar'] .table th {
 .toast .icon-button {
   inline-size: 28px;
   block-size: 28px;
-  color: #b8c7d3;
+  color: var(--c-muted);
 }
 .toast .icon-button:hover {
   background: rgb(255 255 255 / 10%);
   color: #fff;
 }
 .toast--success {
-  border-inline-start-color: #22c55e;
+  border-inline-start-color: var(--c-success);
 }
 .toast--error {
-  border-inline-start-color: #ef4444;
+  border-inline-start-color: var(--c-danger);
 }
 @keyframes toast-in {
   from {
     opacity: 0;
     translate: 0 8px;
   }
+}
+
+/* Amber is a light fill, so filled controls take the dark ink. */
+.btn--primary,
+.btn--primary:hover:not(:disabled) {
+  color: var(--c-on-primary);
+}
+.stat-card__icon--success,
+.stat-card__icon--warning,
+.stat-card__icon--danger,
+.badge--ok,
+.badge--low,
+.badge--out {
+  /* These sit on translucent fills now, so keep their own text colours. */
+  background-clip: padding-box;
+}
+/* Latin figures line up better in the mono face; Arabic keeps its own digits. */
+html[lang='en'] .num,
+html[lang='en'] .stat-card__value,
+.sku,
+.ltr-value {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 /* ------------------------------------------------------------------ settings */
@@ -1020,7 +1047,7 @@ html[lang='ar'] .table th {
   gap: 0.6rem;
 }
 .setting--danger {
-  border-color: #f3c4c4;
+  border-color: var(--c-danger);
 }
 
 /* ------------------------------------------------------------------ responsive */
@@ -1061,7 +1088,7 @@ html[lang='ar'] .table th {
     position: fixed;
     inset: 0;
     z-index: 40;
-    background: rgb(15 23 42 / 45%);
+    background: rgb(0 0 0 / 60%);
   }
   .topbar {
     padding-inline: 1rem;
