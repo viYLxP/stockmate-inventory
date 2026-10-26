@@ -80,7 +80,8 @@ tests/e2e/     Playwright tests
 Static build with hash routing (`#/products`) and relative paths, so it runs on any static host.
 
 - **Vercel / Netlify / Cloudflare Pages:** import the repository; build command `npm run build`, output `dist`.
-- **GitHub Pages:** `.github/workflows/deploy.yml` lints, tests, builds and deploys. In the repository open **Settings → Pages → Source → GitHub Actions**.
+- **GitHub Pages (optional):** in the repository open **Settings → Pages → Source → GitHub Actions**, then run **Actions → Deploy to GitHub Pages → Run workflow**.
+- **CI:** `.github/workflows/ci.yml` lints, tests and builds on every push.
 
 **Limits by design:** data is per browser and device, one currency (SAR), no VAT, purchase orders or multiple warehouses.
 

@@ -1,10 +1,9 @@
-# Builds, tests and deploys StockMate to GitHub Pages on every push to main.
+# Optional: deploys StockMate to GitHub Pages when run manually (Actions → Deploy to GitHub Pages → Run workflow).
+# The live site is hosted on Vercel; use this only if you also want a GitHub Pages copy.
 # One-time setup: repository Settings → Pages → Source: "GitHub Actions".
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
